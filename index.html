@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Color Palette Generator</title>
+
+<style>
+
+body{
+font-family: Arial;
+text-align:center;
+background:#f4f4f4;
+margin:0;
+padding:40px;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+}
+
+.palette{
+display:flex;
+margin-top:20px;
+}
+
+.color{
+flex:1;
+height:150px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:bold;
+}
+
+button{
+padding:12px 20px;
+font-size:16px;
+margin-top:20px;
+cursor:pointer;
+}
+
+.student{
+margin-bottom:30px;
+background:white;
+padding:20px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="student">
+<h2>Containerized Color Palette Generator</h2>
+
+<p><b>Name:</b> Hima Prasobh</p>
+<p><b>Roll Number:</b> 2023BCS0086</p>
+
+
+</div>
+
+<button onclick="generatePalette()">Generate Palette</button>
+
+<div class="palette" id="palette"></div>
+
+</div>
+
+<script>
+
+function randomColor(){
+return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6,"0")
+}
+
+function generatePalette(){
+
+let palette = document.getElementById("palette")
+palette.innerHTML=""
+
+for(let i=0;i<5;i++){
+
+let color = randomColor()
+
+let div = document.createElement("div")
+div.className="color"
+div.style.background=color
+div.innerText=color
+
+palette.appendChild(div)
+
+}
+
+}
+
+generatePalette()
+
+</script>
+
+</body>
+</html>
